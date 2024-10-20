@@ -13,17 +13,16 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-var mysql  = require('mysql');
-var config = require('../config/db');
+var mysql = require("mysql2");
+var config = require("../config/db");
 
 var connection = mysql.createConnection(config);
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
-    console.error('error connecting: ' + err.stack);
-  }
-  else {
-    console.log('connected as id ' + connection.threadId);
+    console.error("error connecting: " + err.stack);
+  } else {
+    console.log("connected as id " + connection.threadId);
   }
 });
 

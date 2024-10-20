@@ -13,20 +13,20 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-var mysql  = require('mysql');
-var config = require('../config/db');
+var mysql = require("mysql2");
+var config = require("../config/db");
 
 var client = mysql.createConnection({
-  host:     config.host,
-  user:     config.user,
-  password: config.password
+  host: config.host,
+  user: config.user,
+  password: config.password,
 });
 
-client.query('use ' + config.database);
+client.query("use " + config.database);
 
-old_name = 'cite'
-new_name = 'site varchar(2048) default NULL'
+old_name = "cite";
+new_name = "site varchar(2048) default NULL";
 
-client.query('alter table cfps change column ' + old_name + ' ' + new_name);
+client.query("alter table cfps change column " + old_name + " " + new_name);
 
 client.end();

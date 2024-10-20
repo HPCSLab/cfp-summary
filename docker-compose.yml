@@ -1,4 +1,16 @@
 services:
+  init_db:
+    build: .
+    command: db/mysql_initialize.js
+    volumes:
+      - type: bind
+        target: /work/config/app.json
+        source: config/app.json.sample
+      - type: bind
+        target: /work/config/db.json
+        source: config/db.json.sample
+    depends_on:
+      - mysql
   server:
     build: .
     ports:
@@ -11,6 +23,8 @@ services:
         target: /work/config/db.json
         source: config/db.json.sample
     restart: unless-stopped
+    depends_on:
+      - init_db
   mysql:
     image: mysql:9
     environment:
@@ -18,4 +32,6 @@ services:
       - MYSQL_USER=cfps_user
       - MYSQL_PASSWORD=cfps_pass
       - MYSQL_ROOT_PASSWORD=cfps_pass
+    ports:
+      - 3306:3306
     restart: unless-stopped

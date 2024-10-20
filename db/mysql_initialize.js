@@ -13,52 +13,54 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-var mysql  = require('mysql');
-var config = require('../config/db');
+var mysql = require("mysql2");
+var config = require("../config/db");
 
 var client = mysql.createConnection({
-  host:     config.host,
-  user:     config.user,
-  password: config.password
+  host: config.host,
+  user: config.user,
+  password: config.password,
 });
 
-client.query('create database ' + config.database
-  , function(err) {
-    if(err) {
+client.query(
+  "create database if not exists " + config.database,
+  function (err) {
+    if (err) {
       throw err;
     }
-  });
+  }
+);
 
-client.query('use ' + config.database);
+client.query("use " + config.database);
 
 client.query(
-  'create table cfps' +
-  '(' +
-  '  cfp_id              INT             NOT NULL  AUTO_INCREMENT,' +
-  '  name                varchar(16)     NOT NULL  UNIQUE,' +
-  '  fullname            varchar(128)    default   NULL,' +
-  '  venue               varchar(64)     default   NULL,' +
-  '  date_beg            date            default   NULL,' +
-  '  date_end            date            default   NULL,' +
-  '  site                varchar(2048)   default   NULL,' +
-  '  remarks             varchar(1024)   default   NULL,' +
-  '  updated_at          TIMESTAMP       DEFAULT   CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,' +
-  '  PRIMARY KEY(cfp_id)' +
-  ')'
+  "create table cfps" +
+    "(" +
+    "  cfp_id              INT             NOT NULL  AUTO_INCREMENT," +
+    "  name                varchar(16)     NOT NULL  UNIQUE," +
+    "  fullname            varchar(128)    default   NULL," +
+    "  venue               varchar(64)     default   NULL," +
+    "  date_beg            date            default   NULL," +
+    "  date_end            date            default   NULL," +
+    "  site                varchar(2048)   default   NULL," +
+    "  remarks             varchar(1024)   default   NULL," +
+    "  updated_at          TIMESTAMP       DEFAULT   CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP," +
+    "  PRIMARY KEY(cfp_id)" +
+    ")"
 );
 
 client.query(
-  'create table deadlines' +
-  '(' +
-    'deadlines_id        INT             NOT NULL  AUTO_INCREMENT,' +
-    'cfp_id              INT             NOT NULL,' +
-    'abst_deadline       date            default   NULL,' +
-    'submission_deadline date            default   NULL,' +
-    'notification_date   date            default   NULL,' +
-    'camera_deadline     date            default   NULL,' +
-    'PRIMARY KEY(deadlines_id),' +
-    'FOREIGN KEY(cfp_id) references cfps(cfp_id)' +
-  ')'
+  "create table deadlines" +
+    "(" +
+    "deadlines_id        INT             NOT NULL  AUTO_INCREMENT," +
+    "cfp_id              INT             NOT NULL," +
+    "abst_deadline       date            default   NULL," +
+    "submission_deadline date            default   NULL," +
+    "notification_date   date            default   NULL," +
+    "camera_deadline     date            default   NULL," +
+    "PRIMARY KEY(deadlines_id)," +
+    "FOREIGN KEY(cfp_id) references cfps(cfp_id)" +
+    ")"
 );
 
 client.end();

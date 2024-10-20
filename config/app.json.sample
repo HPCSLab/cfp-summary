@@ -2,7 +2,7 @@
 {
   "hostname": "www.hpcs.cs.tsukuba.ac.jp",
   "port": 80,
-  "host": "127.0.0.1",
+  "host": "0.0.0.0",
   "baseUrl": "/",
   "title": "CFPs @Architecture-team, HPCS Lab."
 }

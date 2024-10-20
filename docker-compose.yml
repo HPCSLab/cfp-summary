@@ -10,6 +10,7 @@ services:
       - type: bind
         target: /work/config/db.json
         source: config/db.json.sample
+    restart: unless-stopped
   mysql:
     image: mysql:9
     environment:
@@ -17,3 +18,4 @@ services:
       - MYSQL_USER=cfps_user
       - MYSQL_PASSWORD=cfps_pass
       - MYSQL_ROOT_PASSWORD=cfps_pass
+    restart: unless-stopped

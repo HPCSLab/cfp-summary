@@ -1,0 +1,12 @@
+{
+  "hostname": "hoge.fuga.jp",
+  "port": {
+    "https": "8443"
+  },
+  "baseUrl": "/",
+  "https": {
+    "key":  "/etc/certs/https.key",
+    "cert": "/etc/certs/https.cer"
+  },
+  "title": "hogefuga-jp"
+}

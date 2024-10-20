@@ -1,0 +1,20 @@
+{
+  "name": "CFP summary",
+  "version": "1.0.0",
+  "description": "Call for Paper database application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuta Hirokawa",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "moment": "^2.15.1",
+    "mysql": "^2.11.1",
+    "pug": "^2.0.0-beta6",
+    "underscore": "^1.8.3"
+  }
+}

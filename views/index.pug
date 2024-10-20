@@ -1,0 +1,110 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="utf-8")
+    link(rel="stylesheet" type="text/css" href="./css/style.css")
+    link(rel="stylesheet" type="text/css" href="./css/responsive.css")
+    script(type="text/javascript" src="jquerysrc/jquery.min.js")
+    script(type="text/javascript" src="underscoresrc/underscore-min.js")
+    script(type="text/javascript" src="js/views.js")
+    meta(name="viewport" content="width=device-width initial-scale=1")
+    title #{pageTitle}
+
+  body
+    h1.title #{pageTitle}
+
+    #detail-window
+      #detail-content
+      #detail-operator
+        input#detail-update(type="button" name="detail-update" value="編集")
+        input#detail-close(type="button" name="detail-close" value="閉じる")
+
+    .main
+      #last_updated Last updated:
+
+      .page
+        h2.subtitle#registration_page CFP情報登録
+        .section#registration
+          .input_form
+            .input_elem
+              label.align(for="conf_name") 会議名 (略称)
+              textarea#conf_name(name="conf_name" placeholder="SC16")
+            .input_elem 
+              label.align(for="conf_fullname") 会議名
+              textarea#conf_fullname(name="conf_fullname" placeholder="The International Conference for High Performance Computing, Networking, Storage and Analysis")
+            .input_elem 
+              label.align(for="conf_venue") 開催地
+              textarea#conf_venue(name="conf_venue" placeholder="Salt Lake City, Utah, USA")
+            .input_elem 
+              label.align(for="conf_date") 日程
+              input#conf_date_beg(type="date" name="conf_date_beg" value="")
+              input#conf_date_end(type="date" name="conf_date_end" value="")
+            .input_elem 
+              label.align(for="abst_deadline") アブストラクト締切
+              input#abst_deadline(type="date" name="abst_deadline" value="")
+              input.extended_form#deadline_extended(type="checkbox" name="deadline_extended" value="1")
+              label.extended_form.noalign(for="deadline_extended") DEADLINE extended
+            .input_elem 
+              label.align(for="submission_deadline") 投稿締切
+              input#submission_deadline(type="date" name="submission_deadline" value="")
+            .input_elem 
+              label.align(for="notification_date") 採録通知
+              input#notification_date(type="date" name="notification_date" value="")
+            .input_elem 
+              label.align(for="camera_deadline") カメラレディ締切
+              input#camera_deadline(type="date" name="camera_deadline" value="")
+            .input_elem 
+              label.align(for="site_url") リンク
+              textarea#site_url(name="site_url")
+            .input_elem 
+              label.align(for="conf_remarks") 備考
+              textarea#conf_remarks(name="conf_remarks")
+            .input_elem 
+              input#register(type="button" name="register" value="登録")
+              input#clear(type="button" name="clear" value="入力クリア")
+
+      .page
+        h2.subtitle#now_opened_page 投稿受付中
+        .section#now_opened
+          table.responsive_table#now_opened_cfps
+            thead
+              tr
+                th 会議名 (略称)
+                th 開催地
+                th 日程
+                th アブストラクト締切
+                th 投稿締切
+                th 採録通知
+                th リンク
+                th 備考
+                th
+
+      .page
+        h2.subtitle#wait_open_page 採録通知・開催待ち
+        .section#wait_open
+          table.responsive_table#wait_open_cfps
+            thead
+              tr
+                th 会議名 (略称)
+                th 開催地
+                th 日程
+                th 投稿締切
+                th 採録通知
+                th カメラレディ締切
+                th リンク
+                th 備考
+                th
+
+      .page
+        h2.subtitle#closed_conference_page 開催済み (過去3年間)
+        .section#closed_conference
+          table.responsive_table#closed_cfps
+            thead
+              tr
+                th 会議名 (略称)
+                th 開催地
+                th 日程
+                th 投稿締切
+                th リンク
+                th 備考
+                th

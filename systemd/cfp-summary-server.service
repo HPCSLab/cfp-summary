@@ -1,0 +1,15 @@
+[Unit]
+Description = CFP server
+
+[Service]
+WorkingDirectory = /home/hirokawa/cfp_summary_server
+ExecStart        = /home/hirokawa/.nodebrew/current/bin/node index.js
+Type             = simple
+Restart          = always
+RestartSec       = 10
+StandardOutput   = syslog
+StandardError    = syslog
+SyslogIdentifier = CFP-server
+
+[Install]
+WantedBy  = multi-user.target

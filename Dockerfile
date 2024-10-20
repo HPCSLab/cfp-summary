@@ -9,3 +9,5 @@ COPY package.json package.json
 
 RUN npm install --frozen-lockfile
 
+ENTRYPOINT [ "/usr/local/bin/node" ]
+CMD [ "index.js" ]

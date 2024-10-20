@@ -35,5 +35,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          tags: ghcr.io/hpcslab/cfp-summary-server:${{ steps.get-tag-name.outputs.tag-name }}
+          tags: ghcr.io/hpcslab/cfp-summary:${{ steps.get-tag-name.outputs.tag-name }}
           push: true

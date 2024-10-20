@@ -1,0 +1,19 @@
+services:
+  server:
+    build: .
+    ports:
+      - 8080:80
+    volumes:
+      - type: bind
+        target: /work/config/app.json
+        source: config/app.json.sample
+      - type: bind
+        target: /work/config/db.json
+        source: config/db.json.sample
+  mysql:
+    image: mysql:9
+    environment:
+      - MYSQL_DATABASE=cfps_user
+      - MYSQL_USER=cfps_user
+      - MYSQL_PASSWORD=cfps_pass
+      - MYSQL_ROOT_PASSWORD=cfps_pass

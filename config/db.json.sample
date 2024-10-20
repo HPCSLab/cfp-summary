@@ -1,6 +1,6 @@
 {
-  "host":     "127.0.0.1",
+  "host":     "mysql",
   "user":     "cfps_user",
-  "password": "",
+  "password": "cfps_pass",
   "database": "cfps_user"
 }

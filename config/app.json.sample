@@ -1,12 +1,8 @@
+
 {
-  "hostname": "hoge.fuga.jp",
-  "port": {
-    "https": "8443"
-  },
+  "hostname": "www.hpcs.cs.tsukuba.ac.jp",
+  "port": 80,
+  "host": "127.0.0.1",
   "baseUrl": "/",
-  "https": {
-    "key":  "/etc/certs/https.key",
-    "cert": "/etc/certs/https.cer"
-  },
-  "title": "hogefuga-jp"
+  "title": "CFPs @Architecture-team, HPCS Lab."
 }

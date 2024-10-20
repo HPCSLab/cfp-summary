@@ -9,6 +9,6 @@ COPY package.json package.json
 
 RUN npm install --frozen-lockfile
 
-PORT 80
+EXPOSE 80
 ENTRYPOINT [ "/usr/local/bin/node" ]
 CMD [ "index.js" ]

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-var mysql = require("mysql2");
+var mysql = require("mysql");
 var config = require("../config/db");
 
 var client = mysql.createConnection({
